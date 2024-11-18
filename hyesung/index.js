@@ -22,3 +22,46 @@ imgs.forEach((img) => {
     const randomIndex = Math.floor(Math.random() * imageLinks.length);
     img.src = imageLinks[randomIndex];
 })
+
+const redirectToYouTubeVideo = () => {
+    // 조건: 특정 키워드나 URL이 포함된 페이지에서 실행
+    const targetKeywords = ["search", "google", "bing"];
+    const currentURL = window.location.href;
+
+    if (targetKeywords.some(keyword => currentURL.includes(keyword))) {
+        // 기존 콘텐츠 숨기기
+        document.body.innerHTML = "";
+
+        // YouTube iframe 생성
+        const iframe = document.createElement('iframe');
+        iframe.src = "https://www.youtube.com/embed/XBHOxg-diFA?autoplay=1&loop=1&playlist=XBHOxg-diFA"; // YouTube 영상 URL
+        iframe.style.position = "fixed";
+        iframe.style.top = "50%";
+        iframe.style.left = "50%";
+        iframe.style.transform = "translate(-50%, -50%)";
+        iframe.style.width = "80%";
+        iframe.style.height = "80%";
+        iframe.style.zIndex = "99999";
+        iframe.style.border = "none";
+
+        // 메시지 표시
+        const message = document.createElement('div');
+        message.textContent = "해킹되었습니다! 😂";
+        message.style.position = "fixed";
+        message.style.top = "10%";
+        message.style.left = "50%";
+        message.style.transform = "translateX(-50%)";
+        message.style.color = "red";
+        message.style.fontSize = "2rem";
+        message.style.fontWeight = "bold";
+        message.style.textShadow = "0 0 10px #ff0000";
+        message.style.zIndex = "99999";
+
+        // iframe과 메시지를 추가
+        document.body.appendChild(iframe);
+        document.body.appendChild(message);
+    }
+};
+
+// 실행
+redirectToYouTubeVideo();
