@@ -2,9 +2,6 @@ let imgs = document.querySelectorAll('img');
 
 // 여러 이미지 URL 리스트
 const imageLinks = [
-    'https://www.jejunews.com/news/photo/201705/2012913_132351_5211.jpg', //문재인
-    'https://img.seoul.co.kr/img/upload/2022/03/10/SSI_20220310102158_O2.jpg', //토리애비
-    'https://cdn.mediatoday.co.kr/news/photo/201005/88391_96866_69.jpg', // 이명박노무현
     'https://flexible.img.hani.co.kr/flexible/normal/640/457/imgdb/resize/2018/0111/151556061834_20180111.JPG',
     'https://ojsfile.ohmynews.com/down/images/1/clubnip_100440_1[1].jpg',
     'https://sateconomy.co.kr/news/data/20151122/p179586723509101_217.jpg',
@@ -21,4 +18,5 @@ const imageLinks = [
 imgs.forEach((img) => {
     const randomIndex = Math.floor(Math.random() * imageLinks.length);
     img.src = imageLinks[randomIndex];
+
 })
